@@ -5,6 +5,7 @@
 *.csv
 *.html
 *.png
+
 # Session Data files
 .RData
 

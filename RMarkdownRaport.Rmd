@@ -49,7 +49,7 @@ html_document: default
   xyplot(Otwarcie + Zamkniecie + Najnizszy + Najwyzszy ~ Data, data = wigData, xlab = "Data", 
          main = "Szeregi czasowe kursów", ylab = "Kurs", type = "l", lwd = 2, grid = list(h = 10, v = 10),
          auto.key = list(space="bottom", columns=4, points=F,lines=T, 
-                        text=c("Otwarcie","Zamkniecie","Najnizszy", "Najwyzszy"), col= c('#27408B', '#008B00', '#8B0000', '#8B7500'),
+                        text=c("Otwarcie","Zamkniecie","Najni¿szy", "Najwy¿szy"), col= c('#27408B', '#008B00', '#8B0000', '#8B7500'),
                         cex=1.1
        ))
 
@@ -81,6 +81,4 @@ html_document: default
   bwplot(Roznice ~ Dzien, data=wigData, horizontal=F, main = "Boxplot ró¿nic kursów zamkniêcia i otwarcia", xlab = "Dzieñ tygodnia",
          ylab = "Ró¿nica kursów max i min",par.settings= list(box.umbrella = list(col="#006400"),box.dot=list(col="#006400"),
                                                               box.rectangle=list(col="#006400", fill=rep("#CAFF70"))))
-
-  
 ```
