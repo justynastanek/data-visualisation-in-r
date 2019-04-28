@@ -1,6 +1,6 @@
 ---
 title: "Raport"
-author: "Justyna Stanek"
+author: "JS"
 date: "27 kwietnia 2019"
 html_document: default
 ---
