@@ -90,6 +90,30 @@ boxplot <- ggbackground(boxplot, img, color = "gray77")
 
 x11();print(boxplot)
 
-#4. 
+#4. Circle diagram
+
+wigData$Dzien <- wday(wigData$Data, label=T, abbr=F)
+
+pie <- (
+  ggplot(wigData, aes(x=factor(1),y = wigData$Wolumen, fill = factor(wigData$Dzien)))
++
+  geom_bar(width = 1, stat = "identity")
++
+  labs(title="Wykres ko³owy - wolumen w podziale na typy dni", fill = "Dni")
++
+  scale_fill_manual(values=c("khaki1", "lightgreen", "indianred1", "paleturquoise1", "sandybrown"))
++
+  labs(fill = "Dni")
++
+  coord_polar(theta="y")
++
+  theme(axis.title.x=element_blank(),plot.title = element_text(size=10),axis.title.y=element_blank(),axis.text.y=element_blank())
+
+)
+
+pie <- ggbackground(pie, img, color = "gray77")
+
+x11();print(pie)
+
 
  
