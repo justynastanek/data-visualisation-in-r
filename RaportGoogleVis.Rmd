@@ -6,6 +6,7 @@ output: html_document
 ---
 
 # RMarkdown + googleVis
+## Zbiory danych pochodz¹ ze strony: https://dane.gov.pl/dataset?page=1&per_page=5&q=województw&sort=relevance
 
 ```{r, results = "hide", echo = FALSE}
 
@@ -14,6 +15,7 @@ output: html_document
 ```
 
 ## 1. Prezentacja zbioru danych wykorzystanego do wizualizacji
+### Ca³kowita produkcja ciep³a w województwach w 2015 roku
 
 ```{r , echo = F , results = "asis" }
     
@@ -41,3 +43,39 @@ output: html_document
 
 
 ```
+
+## 3. Prezentacja zbioru danych wykorzystanego do wizualizacji
+### Osiedlanie siê repatriantów na terenie poszczególnych województw 2018
+```{r, results = "hide", echo = FALSE}
+
+    data3 <- as.data.frame(read.csv(file = "./osiedlanie_2018.csv", sep=";" , dec="," , header=T , stringsAsFactors=F))
+    data3 <- data3[c(-1,-18),]
+    data3 <- data3[, c(1,6)]
+
+```
+
+```{r , echo = F , results = "asis" }
+    
+    library(googleVis)
+    Table <- gvisTable(data3)
+    print(Table, "chart")
+
+```
+
+## 4. Wykres mapowy przedstawiaj¹cy psiedlanie siê repatriantów na terenie poszczególnych województw 2018
+
+```{r, echo=F, results="asis", fig.cap="Produkcja ciep³a 2015"}
+    
+    GeoStates <- gvisGeoChart(data3, "Wojewodztwo", "liczba_osiedlonych_ogolem",
+                         options=list(region="PL",
+                                      displayMode="regions",
+                                      resolution="provinces",
+                                      width=800, height=800,
+                                      colorAxis="{colors:['khaki', 'brown']}",
+                                      backgroundColor="lightblue"
+                                      ))
+    print(GeoStates,"chart")
+
+
+```
+
