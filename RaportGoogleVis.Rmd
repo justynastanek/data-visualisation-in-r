@@ -1,0 +1,43 @@
+---
+title: "Raport z wykorzystaniem biblioteki googleVis"
+author: "JS"
+date: "29 maja 2019"
+output: html_document
+---
+
+# RMarkdown + googleVis
+
+```{r, results = "hide", echo = FALSE}
+
+    data1 <- as.data.frame(read.csv(file = "./produkcja_ciepla.csv", sep=";" , dec="," , header=T , stringsAsFactors=F))
+
+```
+
+## 1. Prezentacja zbioru danych wykorzystanego do wizualizacji
+
+```{r , echo = F , results = "asis" }
+    
+    library(googleVis)
+    data2 <- data1[data1[2] == 2015, c(1,4)]
+    data2 <- data2[-1,]
+    Table <- gvisTable(data2)
+    print(Table, "chart")
+
+```
+
+## 2. Wykres mapowy przedstawiaj¹cy ca³kowit¹ produkcjê ciep³a w województwach w roku 2015
+
+```{r, echo=F, results="asis", fig.cap="Produkcja ciep³a 2015"}
+    
+    GeoStates <- gvisGeoChart(data2, "Wojewodztwo", "Produkcja_ciepla_ogolem",
+                         options=list(region="PL",
+                                      displayMode="regions",
+                                      resolution="provinces",
+                                      width=800, height=800,
+                                      colorAxis="{colors:['khaki', 'brown']}",
+                                      backgroundColor="lightblue"
+                                      ))
+    print(GeoStates,"chart")
+
+
+```

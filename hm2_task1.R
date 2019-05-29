@@ -4,7 +4,8 @@ library(ggplot2)
 library(ggimage)
 library(gridExtra)
 library(lubridate)
-setwd('C:/Users/you/Desktop/SGH MGR/II semestr/Prezentacja i wizualizacja danych/homework1')
+
+setwd("C:/Users/you/Desktop/SGH MGR/II semestr/Prezentacja i wizualizacja danych/homework1")
 
 #load data
 wigData <- as.data.frame(read.csv(file = "https://stooq.pl/q/d/l/?s=wig&i=d", sep="," , dec="." , header=T , stringsAsFactors=F))
