@@ -4,7 +4,8 @@ library(markdown)
 library(rmarkdown)
 library(googleVis)
 
-setwd('C:/Users/you/Desktop/SGH MGR/II semestr/Prezentacja i wizualizacja danych/homework1')
+#set working directory first
+#setwd()
 
 # wygenerowanie pliku *.md
 knit(input="RaportGoogleVis.Rmd", output="tmp.md") 

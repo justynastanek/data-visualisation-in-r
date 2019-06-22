@@ -5,7 +5,8 @@ library(ggimage)
 library(gridExtra)
 library(lubridate)
 
-setwd("C:/Users/you/Desktop/SGH MGR/II semestr/Prezentacja i wizualizacja danych/homework1")
+#set working directory first
+#setwd()
 
 #load data
 wigData <- as.data.frame(read.csv(file = "https://stooq.pl/q/d/l/?s=wig&i=d", sep="," , dec="." , header=T , stringsAsFactors=F))
